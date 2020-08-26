@@ -4,6 +4,9 @@
 
 `git clone git@github.com:GiveMeAllYourCats/jshtmlparsers-benchmark.git && cd jshtmlparsers-benchmark && npm i && node benchmark`
 
+#### What is a operation?
+A operation consists of 258 html files, they can be small, they can be big, have large CSS or large SCRIPT tags. These are real life html files derived from the repository of [htmlparser-benchmark](https://github.com/AndreasMadsen/htmlparser-benchmark)
+
 #### Results:
 
 ```
