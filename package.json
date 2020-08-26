@@ -8,6 +8,9 @@
   },
   "author": "GiveMeAllYourCats <specamps@gmail.com>",
   "license": "MIT",
+  "engines": {
+    "node": ">=13.0.0"
+  },
   "dependencies": {
     "async": "^3.2.0",
     "benchmark": "^2.1.4",

@@ -1,8 +1,14 @@
 # jshtmlparsers-benchmark
 
-<p align="center">
-  <img src="https://i.imgur.com/eNueMdZ.png">
-</p>
+[![HitCount](http://hits.dwyl.com/GiveMeAllYourCats/jshtmlparsers-benchmark.svg)](http://hits.dwyl.com/GiveMeAllYourCats/jshtmlparsers-benchmark)
+[![Package quality](https://packagequality.com/shield/jshtmlparsers-benchmark.svg)](https://packagequality.com/#?package=jshtmlparsers-benchmark)
+[![Build Status](https://travis-ci.org/givemeallyourcats/jshtmlparsers-benchmark.png?branch=master)](https://travis-ci.org/givemeallyourcats/jshtmlparsers-benchmark)
+[![Coverage Status](https://coveralls.io/repos/github/GiveMeAllYourCats/jshtmlparsers-benchmark/badge.svg?branch=master)](https://coveralls.io/github/GiveMeAllYourCats/jshtmlparsers-benchmark?branch=master)
+[![Licensing](https://img.shields.io/github/license/givemeallyourcats/jshtmlparsers-benchmark.svg)](https://raw.githubusercontent.com/givemeallyourcats/jshtmlparsers-benchmark/master/LICENSE)
+[![Repo size](https://img.shields.io/github/repo-size/givemeallyourcats/jshtmlparsers-benchmark.svg)](https://github.com/givemeallyourcats/jshtmlparsers-benchmark)
+[![Downloads per week](https://img.shields.io/npm/dw/jshtmlparsers-benchmark.svg)](https://www.npmjs.com/package/jshtmlparsers-benchmark)
+[![Node version](https://img.shields.io/node/v/jshtmlparsers-benchmark.svg)](https://www.npmjs.com/package/jshtmlparsers-benchmark)
+[![Help us and star this project](https://img.shields.io/github/stars/givemeallyourcats/jshtmlparsers-benchmark.svg?style=social)](https://github.com/givemeallyourcats/jshtmlparsers-benchmark)
 
 #### Usage:
 
@@ -19,17 +25,31 @@ Each parser is spawned in a web worker and then it tries to create as much cycle
 #### Results:
 
 ```
-fasthtmlparser       x 327.66   html file parses/sec
-nodehtmlparser       x 242.52   html file parses/sec
-htmlparser2          x 144.48   html file parses/sec
-html5parser          x 113.52   html file parses/sec
-htmlparser2dom       x 108.36   html file parses/sec
-htmlparsestringify   x 103.20   html file parses/sec
-neutronhtml5parser   x 100.62   html file parses/sec
-libxmljs             x 59.34    html file parses/sec
-parse5               x 46.44    html file parses/sec
-cheerio              x 43.86    html file parses/sec
-sax                  x 41.28    html file parses/sec
-htmlparser           x 30.96    html file parses/sec
-html5                x 7.74     html file parses/sec
+    _     _     _             _
+   (_)   | |   | |           | |
+    _ ___| |__ | |_ _ __ ___ | |_ __   __ _ _ __ ___  ___ _ __ ___
+   | / __| '_ \| __| '_ ` _ \| | '_ \ / _` | '__/ __|/ _ | '__/ __|
+   | \__ | | | | |_| | | | | | | |_) | (_| | |  \__ |  __| |  \__ \
+   | |___|_| |_|\__|_| |_| |_|_| .__/ \__,_|_|  |___/\___|_|  |___/
+  _/ |                         | |
+ |__/                          |_|
+
+
+One cycle is parsing 258 html files one by one.
+Found 13 parsers, spawning equally amount of workers
+Each parser will try to create as much cycles possible
+
+fasthtmlparser       x 1.53 cycles per sec   394.74 parses per sec
+nodehtmlparser       x 0.81 cycles per sec   208.98 parses per sec
+htmlparser2          x 0.51 cycles per sec   131.58 parses per sec
+html5parser          x 0.41 cycles per sec   105.78 parses per sec
+htmlparser2dom       x 0.41 cycles per sec   105.78 parses per sec
+htmlparsestringify   x 0.38 cycles per sec   98.04  parses per sec
+neutronhtml5parser   x 0.36 cycles per sec   92.88  parses per sec
+libxmljs             x 0.15 cycles per sec   38.70  parses per sec
+parse5               x 0.17 cycles per sec   43.86  parses per sec
+cheerio              x 0.16 cycles per sec   41.28  parses per sec
+sax                  x 0.15 cycles per sec   38.70  parses per sec
+htmlparser           x 0.12 cycles per sec   30.96  parses per sec
+
 ```
