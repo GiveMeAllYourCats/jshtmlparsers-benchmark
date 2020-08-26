@@ -2,7 +2,7 @@
 
 #### Usage:
 
-`node benchmark`
+`git clone git@github.com:GiveMeAllYourCats/jshtmlparsers-benchmark.git && cd jshtmlparsers-benchmark && node benchmark`
 
 #### Results:
 
