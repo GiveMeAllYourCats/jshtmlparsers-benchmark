@@ -12,7 +12,6 @@
     "async": "^3.2.0",
     "benchmark": "^2.1.4",
     "cheerio": "^1.0.0-rc.3",
-    "commander": "^6.0.0",
     "domjs": "^0.3.2",
     "fast-html-parser": "^1.0.1",
     "glob": "^7.1.6",

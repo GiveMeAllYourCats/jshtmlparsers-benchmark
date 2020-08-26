@@ -5,20 +5,13 @@ const path = require('path')
 const Ora = require('ora')
 const fsp = require('fs').promises
 const fs = require('fs')
-const { Command } = require('commander')
 const { Worker, parentPort, workerData } = require('worker_threads')
-const program = new Command()
 const EventEmitter = require('events')
 
 const main = async () => {
 	let workersDone = 0
 	let parsers
 	let ora = Ora('Starting benchmark').start()
-
-	program
-		.option('-p, --parser <parser>', 'test only a specific parser')
-		.option('-n, --new <new>', 'creates a new parser file with chosen name')
-	program.parse(process.argv)
 
 	ora.text = 'Loading html files'
 	const htmlFiles = await async.map(glob.sync('./html/*.html'), async file => {
