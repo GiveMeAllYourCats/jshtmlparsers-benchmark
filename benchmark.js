@@ -34,6 +34,9 @@ const main = async () => {
 			ora.stop()
 			console.log(text)
 			ora = Ora(`Waiting for ${parsers.length - workersDone - 1} more workers to finish responding...`).start()
+			if (parsers.length - workersDone - 1 === 0) {
+				process.exit()
+			}
 		})
 		worker.on('error', err => {
 			throw err
