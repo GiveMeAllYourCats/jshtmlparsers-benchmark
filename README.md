@@ -10,7 +10,7 @@ A operation (or cycle) consists of 258 html files being read one by one, they ca
 
 #### How are results generated?
 
-Each parses is spawned in a web worker thread and then it creates as much cycles as possible. The end results is the variable `x amount of html files parses per/sec`
+Each parsers are spawned in a web worker and then it tries to create as much cycles as possible. The end results is the variable `x amount of html files parses per/sec`
 
 #### Results:
 
