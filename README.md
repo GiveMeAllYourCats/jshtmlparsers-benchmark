@@ -2,7 +2,6 @@
 
 [![Licensing](https://img.shields.io/github/license/givemeallyourcats/jshtmlparsers-benchmark.svg)](https://raw.githubusercontent.com/givemeallyourcats/jshtmlparsers-benchmark/master/LICENSE)
 [![Repo size](https://img.shields.io/github/repo-size/givemeallyourcats/jshtmlparsers-benchmark.svg)](https://github.com/givemeallyourcats/jshtmlparsers-benchmark)
-[![Node version](https://img.shields.io/node/v/jshtmlparsers-benchmark.svg)](https://www.npmjs.com/package/jshtmlparsers-benchmark)
 [![Help us and star this project](https://img.shields.io/github/stars/givemeallyourcats/jshtmlparsers-benchmark.svg?style=social)](https://github.com/givemeallyourcats/jshtmlparsers-benchmark)
 
 #### Usage:
