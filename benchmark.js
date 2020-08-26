@@ -33,7 +33,7 @@ const main = async () => {
 				.padEnd(8, ' ')} .html/sec`
 			ora.stop()
 			console.log(text)
-			ora = Ora(`Waiting for ${parsers.length - workersDone - 2} more workers to finish responding...`).start()
+			ora = Ora(`Waiting for ${parsers.length - workersDone - 1} more workers to finish responding...`).start()
 		})
 		worker.on('error', err => {
 			throw err
@@ -41,10 +41,6 @@ const main = async () => {
 		worker.on('exit', code => {
 			workersDone++
 			if (code !== 0) reject(new Error(`Worker stopped with exit code ${code}`))
-
-			if (workersDone >= parsers.length - 1) {
-				process.exit()
-			}
 		})
 
 		return worker
@@ -52,11 +48,11 @@ const main = async () => {
 
 	ora.text = 'Reading parser files'
 	parsers = glob.sync('./parsers/*.js')
-	ora.text = `Spawning workers`
+	ora.text = `Spawning ${parsers.length} workers`
 	parsers.forEach(parserPath => {
 		spawnWorker(parserPath)
 	})
-	ora.text = `Awaiting response from first worker...`
+	ora.text = `Awaiting response from first worker of ${parsers.length} worker that spawned...`
 }
 
 main()
