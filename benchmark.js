@@ -55,7 +55,7 @@ const main = async () => {
 	parsers.forEach(parserPath => {
 		spawnWorker(parserPath)
 	})
-	ora.text = `Awaiting response from first worker of ${parsers.length} worker that spawned...`
+	ora.text = `Awaiting response from first worker of ${parsers.length} workers that spawned...`
 }
 
 main()
