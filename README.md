@@ -1,5 +1,9 @@
 # jshtmlparsers-benchmark
 
+<p align="center">
+  <img src="https://i.imgur.com/eNueMdZ.png">
+</p>
+
 #### Usage:
 
 `git clone git@github.com:GiveMeAllYourCats/jshtmlparsers-benchmark.git && cd jshtmlparsers-benchmark && npm i && node benchmark`
