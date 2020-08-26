@@ -9,6 +9,7 @@
   "author": "GiveMeAllYourCats <specamps@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "async": "^3.2.0",
     "benchmark": "^2.1.4",
     "cheerio": "^1.0.0-rc.3",
     "commander": "^6.0.0",
