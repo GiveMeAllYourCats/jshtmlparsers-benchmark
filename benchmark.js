@@ -17,6 +17,8 @@ const main = async () => {
 	const htmlFiles = await async.map(glob.sync('./html/*.html'), async file => {
 		return await fsp.readFile(file, 'utf-8')
 	})
+	ora.stop()
+	console.log(`One cycle is ${htmlFiles.length} html files`)
 
 	const spawnWorker = parserPath => {
 		const worker = new Worker('./worker.js', {
@@ -28,9 +30,9 @@ const main = async () => {
 		worker.on('message', event => {
 			const text = `${event.name.padEnd(20, ' ')} x ${parseFloat(event.hz)
 				.toFixed(2)
-				.padEnd(7, ' ')} ops/sec       ${parseFloat(parseFloat(event.hz).toFixed(2) * 258)
+				.padEnd(3, ' ')} cycles per sec   ${parseFloat(parseFloat(event.hz).toFixed(2) * htmlFiles.length)
 				.toFixed(2)
-				.padEnd(8, ' ')} .html/sec`
+				.padEnd(6, ' ')} parses per sec`
 			ora.stop()
 			console.log(text)
 			ora = Ora(`Waiting for ${parsers.length - workersDone - 1} more workers to finish responding...`).start()
@@ -49,8 +51,11 @@ const main = async () => {
 		return worker
 	}
 
-	ora.text = 'Reading parser files'
+	ora = Ora('Reading parser files').start()
 	parsers = glob.sync('./parsers/*.js')
+	ora.stop()
+	console.log(`Found ${parsers.length} parsers, spawning equally amount of workers`)
+	ora.start()
 	ora.text = `Spawning ${parsers.length} workers`
 	parsers.forEach(parserPath => {
 		spawnWorker(parserPath)
