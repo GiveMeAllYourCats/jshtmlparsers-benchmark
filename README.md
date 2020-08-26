@@ -2,11 +2,7 @@
 
 #### Usage:
 
-`node benchmark` to test all parsers
-
-or
-
-`node benchmark -p <parsername>` to test one parser
+`node benchmark`
 
 #### Results:
 
