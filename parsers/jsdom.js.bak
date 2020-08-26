@@ -1,0 +1,10 @@
+module.exports = () => {
+	const jsdom = require('jsdom')
+	const { JSDOM } = jsdom
+	return {
+		name: 'JSDom',
+		cycle: async html => {
+			return await new JSDOM(html)
+		}
+	}
+}

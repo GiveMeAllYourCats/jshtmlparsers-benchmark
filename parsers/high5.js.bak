@@ -1,0 +1,13 @@
+module.exports = () => {
+	const High5 = require('high5')
+	var parser = new High5({
+		onend: Promise.reject,
+		onerror: Promise.reject
+	})
+	return {
+		name: 'High5',
+		cycle: async html => {
+			return await parser.end(html)
+		}
+	}
+}

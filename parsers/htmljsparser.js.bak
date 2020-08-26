@@ -1,0 +1,9 @@
+module.exports = () => {
+	const parser = require('htmljs-parser')
+	return {
+		name: 'HtmlJsParser',
+		cycle: async html => {
+			return await parser.parse(html)
+		}
+	}
+}

@@ -1,0 +1,11 @@
+module.exports = () => {
+	const LTX = require('ltx')
+	const parser = new LTX()
+	console.log('yeet?')
+	return {
+		name: 'LTX',
+		cycle: async html => {
+			return await parser.write(html)
+		}
+	}
+}
