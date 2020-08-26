@@ -34,7 +34,7 @@ const main = async () => {
 			ora.text = text
 			ora.stop()
 			console.log(text)
-			ora = Ora('Waiting for responses..').start()
+			ora = Ora('Waiting for more workers to finish responding...').start()
 		})
 		worker.on('error', err => {
 			throw err
@@ -57,6 +57,7 @@ const main = async () => {
 	parsers.forEach(parserPath => {
 		spawnWorker(parserPath)
 	})
+	ora.text = `Awaiting response from first worker...`
 }
 
 main()
