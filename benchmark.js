@@ -75,7 +75,7 @@ const main = async () => {
 	parsers = glob.sync('./parsers/*.js')
 	ora.stop()
 	console.log(`Found ${parsers.length} parsers, spawning equally amount of workers`)
-	console.log(`Each parser will try to create as much cycles possible`)
+	console.log(`Each parser will try to create as much cycles possible\n`)
 	ora.start()
 	ora.text = `Spawning ${parsers.length} workers`
 	parsers.forEach(parserPath => {
