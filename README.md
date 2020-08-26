@@ -1,12 +1,7 @@
 # jshtmlparsers-benchmark
 
-[![HitCount](http://hits.dwyl.com/GiveMeAllYourCats/jshtmlparsers-benchmark.svg)](http://hits.dwyl.com/GiveMeAllYourCats/jshtmlparsers-benchmark)
-[![Package quality](https://packagequality.com/shield/jshtmlparsers-benchmark.svg)](https://packagequality.com/#?package=jshtmlparsers-benchmark)
-[![Build Status](https://travis-ci.org/givemeallyourcats/jshtmlparsers-benchmark.png?branch=master)](https://travis-ci.org/givemeallyourcats/jshtmlparsers-benchmark)
-[![Coverage Status](https://coveralls.io/repos/github/GiveMeAllYourCats/jshtmlparsers-benchmark/badge.svg?branch=master)](https://coveralls.io/github/GiveMeAllYourCats/jshtmlparsers-benchmark?branch=master)
 [![Licensing](https://img.shields.io/github/license/givemeallyourcats/jshtmlparsers-benchmark.svg)](https://raw.githubusercontent.com/givemeallyourcats/jshtmlparsers-benchmark/master/LICENSE)
 [![Repo size](https://img.shields.io/github/repo-size/givemeallyourcats/jshtmlparsers-benchmark.svg)](https://github.com/givemeallyourcats/jshtmlparsers-benchmark)
-[![Downloads per week](https://img.shields.io/npm/dw/jshtmlparsers-benchmark.svg)](https://www.npmjs.com/package/jshtmlparsers-benchmark)
 [![Node version](https://img.shields.io/node/v/jshtmlparsers-benchmark.svg)](https://www.npmjs.com/package/jshtmlparsers-benchmark)
 [![Help us and star this project](https://img.shields.io/github/stars/givemeallyourcats/jshtmlparsers-benchmark.svg?style=social)](https://github.com/givemeallyourcats/jshtmlparsers-benchmark)
 
