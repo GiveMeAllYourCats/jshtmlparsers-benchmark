@@ -26,11 +26,9 @@ const main = async () => {
 			}
 		})
 		worker.on('message', event => {
-			const text = `${event.name.padEnd(20, ' ')} x ${parseFloat(event.hz)
+			const text = `${event.name.padEnd(20, ' ')} x ${parseFloat(parseFloat(event.hz).toFixed(2) * 258)
 				.toFixed(2)
-				.padEnd(7, ' ')} ops/sec       ${parseFloat(parseFloat(event.hz).toFixed(2) * 258)
-				.toFixed(2)
-				.padEnd(8, ' ')} .html/sec`
+				.padEnd(8, ' ')} html file parses/sec`
 			ora.stop()
 			console.log(text)
 			ora = Ora(`Waiting for ${parsers.length - workersDone - 1} more workers to finish responding...`).start()
