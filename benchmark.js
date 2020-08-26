@@ -31,10 +31,9 @@ const main = async () => {
 				.padEnd(7, ' ')} ops/sec       ${parseFloat(parseFloat(event.hz).toFixed(2) * 258)
 				.toFixed(2)
 				.padEnd(8, ' ')} .html/sec`
-			ora.text = text
 			ora.stop()
 			console.log(text)
-			ora = Ora('Waiting for more workers to finish responding...').start()
+			ora = Ora(`Waiting for ${parsers.length - workersDone - 2} more workers to finish responding...`).start()
 		})
 		worker.on('error', err => {
 			throw err
