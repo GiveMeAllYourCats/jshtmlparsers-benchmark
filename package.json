@@ -13,7 +13,9 @@
   },
   "dependencies": {
     "async": "^3.2.0",
+    "axios": "^0.20.0",
     "benchmark": "^2.1.4",
+    "chalk": "^4.1.0",
     "cheerio": "^1.0.0-rc.3",
     "domjs": "^0.3.2",
     "fast-html-parser": "^1.0.1",
@@ -28,10 +30,13 @@
     "htmlparser2": "^4.1.0",
     "libxmljs": "^0.19.7",
     "ltx": "^2.9.2",
+    "moment": "^2.27.0",
     "neutron-html5parser": "^0.2.0",
     "node-html-parser": "^1.2.20",
+    "ololog": "^1.1.161",
     "ora": "^5.0.0",
     "parse5": "^6.0.1",
-    "sax": "^1.2.4"
+    "sax": "^1.2.4",
+    "stacktracey": "^2.0.14"
   }
 }

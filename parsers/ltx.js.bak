@@ -1,7 +1,8 @@
 module.exports = () => {
-	const LTX = require('ltx')
+	const LTX = require('ltx').Parser
 	const parser = new LTX()
-	console.log('yeet?')
+	// console.log('yeet?', parser.write
+	console.log('yeet?', parser.write('<a>aap</a>'))
 	return {
 		name: 'LTX',
 		cycle: async html => {

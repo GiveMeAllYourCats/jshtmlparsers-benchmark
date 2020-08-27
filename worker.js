@@ -1,6 +1,7 @@
 const { Worker, parentPort, workerData } = require('worker_threads')
 const BenchmarkJS = require('benchmark')
 const path = require('path')
+const debug = new (require('./debug'))()
 
 const main = async () => {
 	const parser = require(workerData.parserPath)()
@@ -22,10 +23,14 @@ const main = async () => {
 	suite.add(name, {
 		defer: true,
 		fn: async deferred => {
-			for (let html of workerData.htmlFiles) {
-				await parser.cycle(html)
+			try {
+				for (let html of workerData.htmlFiles) {
+					await parser.cycle(html)
+				}
+				deferred.resolve()
+			} catch (e) {
+				debug.fatal(e)
 			}
-			deferred.resolve()
 		}
 	})
 	suite.run()

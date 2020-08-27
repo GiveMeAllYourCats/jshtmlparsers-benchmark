@@ -6,6 +6,7 @@ const figlet = require('figlet')
 const Ora = require('ora')
 const fsp = require('fs').promises
 const fs = require('fs')
+const debug = new (require('./debug'))()
 const { Worker, parentPort, workerData } = require('worker_threads')
 const EventEmitter = require('events')
 
@@ -33,12 +34,21 @@ const main = async () => {
 	})
 	let ora = Ora('Starting benchmark').start()
 
+	const handleExit = signal => {
+		ora.stop()
+		console.log(`\nReceived ${signal}. \n\nByeBye.`)
+		process.exit(0)
+	}
+	process.on('SIGINT', handleExit)
+	process.on('SIGQUIT', handleExit)
+	process.on('SIGTERM', handleExit)
+
 	ora.text = 'Loading html files'
 	const htmlFiles = await async.map(glob.sync('./html/*.html'), async file => {
 		return await fsp.readFile(file, 'utf-8')
 	})
 	ora.stop()
-	console.log(`One cycle is parsing ${htmlFiles.length} html files one by one.`)
+	debug.log(`One cycle is parsing ${htmlFiles.length} html files one by one.`)
 
 	const spawnWorker = parserPath => {
 		const worker = new Worker('./worker.js', {
@@ -54,34 +64,42 @@ const main = async () => {
 				.toFixed(2)
 				.padEnd(6, ' ')} parses per sec`
 			ora.stop()
-			console.log(text)
+			debug.log(text)
 			ora = Ora(`Waiting for ${parsers.length - workersDone - 1} more workers to finish responding...`).start()
 			if (parsers.length - workersDone - 1 === 0) {
 				process.exit()
 			}
 		})
 		worker.on('error', err => {
-			throw err
+			debug.fatal(err)
 		})
 		worker.on('exit', code => {
 			workersDone++
-			if (code !== 0) reject(new Error(`Worker stopped with exit code ${code}`))
+			if (code !== 0) debug.fatal(`Worker stopped with exit code ${code}`)
 		})
 
 		return worker
 	}
 
 	ora = Ora('Reading parser files').start()
-	parsers = glob.sync('./parsers/*.js')
+	parsers = glob.sync('./parsers/*.js').filter(item => {
+		if (!process.argv[2]) {
+			return true
+		}
+		return process.argv[2].toLowerCase() === path.basename(item, '.js').toLowerCase()
+	})
 	ora.stop()
-	console.log(`Found ${parsers.length} parsers, spawning equally amount of workers`)
-	console.log(`Each parser will try to create as much cycles possible\n`)
+	if (parsers.length === 0) {
+		return debug.log(`No parser found named ${process.argv[2]}`)
+	}
+	debug.log(`Will process ${parsers.length} parsers, spawning a equally amount of workers`)
+	debug.log(`Each parser will try to create as much cycles possible\n`)
 	ora.start()
 	ora.text = `Spawning ${parsers.length} workers`
 	parsers.forEach(parserPath => {
 		spawnWorker(parserPath)
 	})
-	ora.text = `Awaiting response from first worker of ${parsers.length} workers that spawned...`
+	ora.text = `Awaiting response from first worker...`
 }
 
 main()
